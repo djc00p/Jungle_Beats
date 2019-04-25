@@ -44,4 +44,11 @@ class LinkedListTest < MiniTest::Test
 
     assert_instance_of Node, @list.head.next_node
   end
+
+  def test_if_list_update_count
+    @list.append("plop")
+    @list.append("deep")
+
+    assert_instance_of 2, @list.count
+  end
 end
