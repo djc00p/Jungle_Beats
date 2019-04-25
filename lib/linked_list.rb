@@ -16,4 +16,8 @@ class LinkedList
     elements << @head
     elements.count
   end
+
+  def to_string
+    @head.data
+  end
 end
