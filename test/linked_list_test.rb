@@ -19,4 +19,10 @@ class LinkedListTest < MiniTest::Test
   def test_it_head_node_is_nil
     assert_nil  @list.head
   end
+
+  def test_if_list_can_append
+    @list.append("plop")
+
+    assert_equal "plop", @list.head.data
+  end
 end
