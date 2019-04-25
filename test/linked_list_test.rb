@@ -31,4 +31,10 @@ class LinkedListTest < MiniTest::Test
 
     assert_equal 1, @list.count
   end
+
+  def test_if_list_return_to_string
+    @list.append("plop")
+
+    assert_equal "plop", @list.to_string
+  end
 end
