@@ -20,17 +20,24 @@ class LinkedList
   end
 
   def count
-    elements = []
+    count = 0
     current_node = @head
-    while current_node.next_node != nil
-      elements << current_node
+    if current_node.next_node != nil
+      count += 1
       current_node = current_node.next_node
     end
-    elements << current_node
-    elements.count
+    count += 1
+    return count
   end
 
   def to_string
-    @head.data
+    string = ""
+    current_node = @head
+    if current_node.next_node != nil
+      string << current_node.data + " "
+      current_node = current_node.next_node
+    end
+    string << current_node.data + " "
+    string.rstrip
   end
 end
