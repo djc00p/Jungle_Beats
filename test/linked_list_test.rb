@@ -8,7 +8,7 @@ class LinkedListTest < MiniTest::Test
 
   def setup
     @list = LinkedList.new
-    @node = Node.new("plop")
+    # @node = Node.new("plop")
   end
   # binding.pry
 
@@ -36,5 +36,12 @@ class LinkedListTest < MiniTest::Test
     @list.append("plop")
 
     assert_equal "plop", @list.to_string
+  end
+
+  def test_if_list_add_node
+    @list.append("plop")
+    @list.append("deep")
+
+    assert_instance_of Node, @list.head.next_node
   end
 end
