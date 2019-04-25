@@ -25,4 +25,10 @@ class LinkedListTest < MiniTest::Test
 
     assert_equal "plop", @list.head.data
   end
+
+  def test_if_list_can_count
+    @list.append("plop")
+
+    assert_equal 1, @list.count
+  end
 end
