@@ -49,6 +49,6 @@ class LinkedListTest < MiniTest::Test
     @list.append("plop")
     @list.append("deep")
 
-    assert_instance_of 2, @list.count
+    assert_equal 2, @list.count
   end
 end
