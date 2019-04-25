@@ -15,4 +15,8 @@ class LinkedListTest < MiniTest::Test
   def test_existence_of_linked_list
     assert_instance_of LinkedList, @list
   end
+
+  def test_it_head_node_is_nil
+    assert_nil  @list.head
+  end
 end
