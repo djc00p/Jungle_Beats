@@ -21,7 +21,12 @@ class LinkedList
 
   def count
     elements = []
-    elements << @head
+    current_node = @head
+    while current_node.next_node != nil
+      elements << current_node
+      current_node = current_node.next_node
+    end
+    elements << current_node
     elements.count
   end
 
