@@ -72,10 +72,11 @@ class LinkedListTest < MiniTest::Test
     @list.append("deep")
     @list.prepend("dop")
     @list.insert(1, "woo")
+    @list.insert(6, "woo")
 
     assert_instance_of Node, @list.node_location(@list.head, 0)
-    assert_equal "dop woo plop deep", @list.to_string
-    assert_equal 4, @list.count
+    assert_equal "dop woo plop deep woo", @list.to_string
+    assert_equal 5, @list.count
   end
 
   def test_it_can_find_an_element

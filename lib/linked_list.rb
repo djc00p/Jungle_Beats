@@ -48,11 +48,15 @@ class LinkedList
   end
 
   def insert(position, data)
-    node = Node.new(data)
-    next_node = node_location(@head, position)
-    node_location(@head, position - 1).next_node = node
-    node.next_node = next_node
-    return node
+    if position < count
+      node = Node.new(data)
+      next_node = node_location(@head, position)
+      node_location(@head, position - 1).next_node = node
+      node.next_node = next_node
+      return node
+    else
+      append(data)
+    end
   end
 
   def node_location(node, position , count = 0)
