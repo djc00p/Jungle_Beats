@@ -90,4 +90,11 @@ class LinkedList
     end
     find_by(node.next_node, data)
   end
+
+  def pop
+    new_tail = node_location(head, count - 2)
+    old_tail = new_tail.next_node
+    new_tail.clear!
+    old_tail
+  end
 end

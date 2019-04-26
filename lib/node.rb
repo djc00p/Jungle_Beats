@@ -5,4 +5,8 @@ class Node
     @data = data
     @next_node = next_node
   end
+
+  def clear!
+    self.next_node = nil
+  end
 end

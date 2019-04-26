@@ -103,4 +103,18 @@ class LinkedListTest < MiniTest::Test
     assert_equal true, @list.includes?("woo")
     assert_equal false, @list.includes?("poo")
   end
+
+  def test_pop_element_from_list
+    @list.append("plop")
+    @list.append("deep")
+    @list.prepend("dop")
+    @list.prepend("dang")
+    @list.insert(1, "woo")
+
+    expected = @list.pop
+    assert_equal "deep", expected.data
+    assert_equal "dang woo dop plop", @list.to_string
+    @list.pop
+    assert_equal "dang woo dop", @list.to_string
+  end
 end
