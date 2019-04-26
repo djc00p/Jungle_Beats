@@ -22,7 +22,7 @@ class LinkedList
   def count
     count = 0
     current_node = @head
-    if current_node.next_node != nil
+    while current_node.next_node != nil
       count += 1
       current_node = current_node.next_node
     end
@@ -33,11 +33,61 @@ class LinkedList
   def to_string
     string = ""
     current_node = @head
-    if current_node.next_node != nil
+    while current_node.next_node != nil
       string << current_node.data + " "
       current_node = current_node.next_node
     end
     string << current_node.data + " "
     string.rstrip
+  end
+
+  def prepend(data)
+    head_node = Node.new(data)
+    head_node.next_node = @head
+    @head = head_node
+  end
+
+  def insert(position, data)
+    node = Node.new(data)
+    next_node = node_location(@head, position)
+    node_location(@head, position - 1).next_node = node
+    node.next_node = next_node
+    return node
+  end
+
+  def node_location(node, position , count = 0)
+    if position == count
+      node
+    else
+      node_location(node.next_node, position, count += 1)
+    end
+  end
+
+  def find(start_at, num_nodes)
+    found_node = node_location(@head, start_at)
+    string = ""
+    if num_nodes == 1
+      string << found_node.data + " "
+    else
+      until num_nodes == 0 || found_node.nil?
+        string << found_node.data + " "
+        num_nodes -= 1
+        found_node = found_node.next_node if num_nodes > 0
+      end
+    end
+    string.rstrip
+  end
+
+  def includes?(data)
+    find_by(@head, data)
+  end
+
+  def find_by(node, data)
+    if node.next_node.nil?
+      return false
+    elsif node.data == data
+      return true
+    end
+    find_by(node.next_node, data)
   end
 end
